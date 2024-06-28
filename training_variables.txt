@@ -1,0 +1,446 @@
+*****************************************************
+
+mymodel_v1
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP']
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v2
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx']
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v3
+
+*****************************************************
+trainingvars = ['gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo']
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v4( 100 epochs)
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                'gsfrawEnergy','gsfcorrectedEcalEnergy']
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+
+*****************************************************
+
+mymodel_v5( 30 epochs)
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                'gsfrawEnergy','gsfcorrectedEcalEnergy']
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+
+
+*****************************************************
+
+NO SCALING IN EVERY MODEL BELOW!!
+
+*****************************************************
+
+
+*****************************************************
+
+mymodel_v6 (30 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v7 (100 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v8 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v9 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(1, activation='sigmoid',input_dim=n_features))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v10 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(2, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v11 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcal','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v12 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfdeltaErawEcorrOverEcorr','gsfhcalOverEcalBc','gsfeSuperClusterOverP',
+                'gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaEtaEleClusterTrackAtCalo','gsfdeltaEtaSeedClusterTrackAtVtx',
+                'gsfdeltaPhiEleClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx', 'gsfdeltaPhiSeedClusterTrackAtCalo',
+                'gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi','gsfErawOvertrackP','gsfEcorrOvertrackP',
+                ]
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+SCALING STARTS (With Sourabh's method)
+
+*****************************************************
+
+
+*****************************************************
+
+mymodel_v13 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf']
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(32, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v14 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackatVtx','gsfdeltaPhiSeedClusterTrackatCalo']
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(32, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v15 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackatVtx','gsfdeltaPhiSeedClusterTrackatCalo']
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v16 (300 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+model = Sequential()
+model.add(Dense(32, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v17 (300 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.4,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(32, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v18 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(32, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v19 (200 epochs) 
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v20 (200 epochs) (Same as v19, just tried to make a datframe with different approach and failed)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v21 (200 epochs) (Larger JPsi sample is brought, with new JPsi sample but same old Z sample)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+*****************************************************
+
+mymodel_v22 (200 epochs) (Larger JPsi sample is brought, with new JPsi sample but same old Z sample)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+
+*****************************************************
+
+mymodel_v23 (200 epochs) (Larger JPsi sample is brought, with new JPsi sample but same old Z sample)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+
+*****************************************************
+
+mymodel_v24 (200 epochs) (Larger Z and JPsi sample)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+
+*****************************************************
+
+mymodel_v25 (50 epochs) (Larger Z and JPsi sample)
+
+*****************************************************
+trainingvars = ['gsfErawOvertrackP','gsfEcorrOvertrackP','gsfhcalOverEcal','gsfdeltaErawEcorrOverEcorr','gsf_PtdiffgsfgsftrackOverPtgsf','gsfsigmaEtaEta','gsfsigmaIetaIeta','gsfsigmaIphiIphi',
+                'gsfr9','gsfdeltaEtaSuperClusterTrackAtVtx','gsfdeltaEtaSeedClusterTrackAtCalo','gsfdeltaPhiSuperClusterTrackAtVtx','gsfdeltaPhiSeedClusterTrackAtCalo']
+lowerbound   = [1,1,0,0,-2,0,0,0,-0.04,-0.04,-0.04,-0.04]
+upperbound   = [50,50,0.1,0.6,1,0.03,0.04,0.05,0.04,0.04,0.04,0.04]
+model = Sequential()
+model.add(Dense(256, activation='relu', kernel_initializer='he_normal',input_dim=n_features))
+model.add(Dense(128, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(64, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(16, activation='relu', kernel_initializer='he_normal'))
+model.add(Dense(1, activation='sigmoid'))
+df_z = df_z[df_z['ngsf']==2]
+df_jpsi = df_jpsi[df_jpsi['ngsf']==1]
+
+
+
+
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
